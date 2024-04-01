@@ -15,7 +15,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.javih.add_2_calendar
+        package: com.javih.add_2_calendar_new
         pluginClass: Add2CalendarPlugin
       ios:
         pluginClass: Add2CalendarPlugin
