@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Update package kotlin version
+
 ## 1.0.3
 
 * Correct android implementation

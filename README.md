@@ -1,7 +1,7 @@
-# add_2_calendar_new_new
+# add_2_calendar_new
 
 #### A really simple Flutter plugin to add events to each platform's default calendar.
-#### Forked from add_2_calendar_new package
+#### Forked from add_2_calendar package
 
 ## Installation
 
@@ -9,7 +9,7 @@ In your `pubspec.yaml` file within your Flutter Project:
 
 ```yaml
 dependencies:
-  add_2_calendar_new: ^1.0.1
+  add_2_calendar_new: ^1.0.4
 ```
 ### Android integration
 The plugin doesn't need any special permissions by default to add events to the calendar. However, events can also be added without launching the calendar application, for this it is needed to add calendar permissions to your `AndroidManifest.xml`
@@ -30,13 +30,6 @@ Starting from API 30 Android requires package visibility configuration in your A
  ```
 
 ### iOS integration
-
-In order to make this plugin work on iOS 10+, be sure to add this to your `info.plist` file:
-
-```xml
-<key>NSCalendarsUsageDescription</key>
-<string>INSERT_REASON_HERE</string>
-```
 
 `NSContactsUsageDescription` is required for the location autocomplete once Apple's UI is opened, so 
 it is highly recommended that you also add the key, the app might crash otherwise.
