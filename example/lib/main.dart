@@ -6,6 +6,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
+  MyApp({super.key});
+
   Event buildEvent({Recurrence? recurrence}) {
     return Event(
       title: 'Test eventeee',
@@ -39,10 +41,11 @@ class MyApp extends StatelessWidget {
             ListTile(
               title: Text('Add normal event'),
               trailing: Icon(Icons.calendar_today),
-              onTap: () {
-                Add2Calendar.addEvent2Cal(
+              onTap: () async{
+                final result = await Add2Calendar.addEvent2Cal(
                   buildEvent(),
                 );
+                debugPrint(result.toString());
               },
             ),
             Divider(),
@@ -50,13 +53,14 @@ class MyApp extends StatelessWidget {
               title: const Text('Add event with recurrence 1'),
               subtitle: const Text("weekly for 3 months"),
               trailing: Icon(Icons.calendar_today),
-              onTap: () {
-                Add2Calendar.addEvent2Cal(buildEvent(
+              onTap: () async {
+                final result = await Add2Calendar.addEvent2Cal(buildEvent(
                   recurrence: Recurrence(
                     frequency: Frequency.weekly,
                     endDate: DateTime.now().add(Duration(days: 60)),
                   ),
                 ));
+                debugPrint(result.toString());
               },
             ),
             Divider(),
@@ -64,14 +68,15 @@ class MyApp extends StatelessWidget {
               title: const Text('Add event with recurrence 2'),
               subtitle: const Text("every 2 months for 6 times (1 year)"),
               trailing: Icon(Icons.calendar_today),
-              onTap: () {
-                Add2Calendar.addEvent2Cal(buildEvent(
+              onTap: () async {
+                final result = await Add2Calendar.addEvent2Cal(buildEvent(
                   recurrence: Recurrence(
                     frequency: Frequency.monthly,
                     interval: 2,
                     ocurrences: 6,
                   ),
                 ));
+                debugPrint(result.toString());
               },
             ),
             Divider(),
@@ -79,13 +84,14 @@ class MyApp extends StatelessWidget {
               title: const Text('Add event with recurrence 3'),
               subtitle: const Text("RRULE (android only) every year for 10 years"),
               trailing: Icon(Icons.calendar_today),
-              onTap: () {
-                Add2Calendar.addEvent2Cal(buildEvent(
+              onTap: () async {
+                final result = await Add2Calendar.addEvent2Cal(buildEvent(
                   recurrence: Recurrence(
                     frequency: Frequency.yearly,
                     rRule: 'FREQ=YEARLY;COUNT=10;WKST=SU',
                   ),
                 ));
+                debugPrint(result.toString());
               },
             ),
             Divider(),

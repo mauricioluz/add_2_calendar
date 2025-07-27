@@ -1,3 +1,9 @@
+## 1.0.5
+
+* Breaking change: `addEvent2Cal` now returns `Add2CalendarResult` enum instead of boolean
+* Added support for tracking event addition results (success, canceled, permissionDenied)
+* Note: Android will always return `canceled` due to system limitations
+
 ## 1.0.4
 
 * Update package kotlin version

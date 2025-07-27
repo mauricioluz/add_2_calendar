@@ -9,7 +9,7 @@ In your `pubspec.yaml` file within your Flutter Project:
 
 ```yaml
 dependencies:
-  add_2_calendar_new: ^1.0.4
+  add_2_calendar_new: ^1.0.5
 ```
 ### Android integration
 The plugin doesn't need any special permissions by default to add events to the calendar. However, events can also be added without launching the calendar application, for this it is needed to add calendar permissions to your `AndroidManifest.xml`
@@ -63,6 +63,14 @@ Add2Calendar.addEvent2Cal(event);
 ...
 ```
 This will launch the default calendar application to confirm the event and add it to your calendar.
+
+### Return Values
+The plugin now returns an `Add2CalendarResult` enum indicating the outcome:
+- `success` - Event was successfully added
+- `canceled` - User canceled the operation
+- `permissionDenied` - Calendar permission was denied
+
+**Important Note for Android**: Due to Android system limitations, the result will always be `canceled` on Android, even when the event is successfully saved. This is because the Android calendar app doesn't return a proper result to the calling app.
 
 ## Recurring events
 You can add recurrency to your events by specifying a frequency. Optional parameters such as `interval`, `ocurrances` and `endDate` can also be added.
